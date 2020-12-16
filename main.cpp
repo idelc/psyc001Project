@@ -7,6 +7,6 @@
 
 int main(){
     game();
-    cout << "Goodbye !" << endl;
+    cout << "Goodbye!" << endl;
     return 0;
 }

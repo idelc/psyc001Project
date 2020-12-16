@@ -9,12 +9,12 @@ using namespace std;
 #include "manager.hpp"
 
 unsigned inputVal(unsigned choice){
-        return (choice > 5) ? 0 : choice;
+        return ((choice > 5) || (choice < 1)) ? 0 : choice;
 }
 
 class choice{
  public:
-    string storage [9] = {};
+    string storage [8] = {};
     unsigned right;
     choice(string arr[], unsigned n): right(n){
         for(unsigned i = 0; i < 9; i++){
@@ -22,12 +22,14 @@ class choice{
         }
     }
     choice():right(0){};
-    void runOptions(){
-        unsigned temp = 0;
+    void outputOptions(){
         for(unsigned i = 0; i < 4; i++){
-            cout << i << ". " << storage[i];
+            cout << i+1 << ". " << storage[i] << endl;
         }
-        cout << endl;
+        return;
+    }
+    unsigned getInput(){
+        unsigned temp = 0;
         cout << "Your choice: ";
         cin >> temp;
         cin.ignore(256,'\n');
@@ -40,13 +42,24 @@ class choice{
         }
 
         if(temp == 5){
-            gameEnd();
+            cout << "Goodbye!" << endl;
+            exit(0);
         }
-
-        do{
-            cout << storage[temp + 3];
+        return temp;
+    }
+    void outputCons(unsigned n){
+        cout << n << ". " << storage[n+3] << endl;
+        return;
+    }
+    void runOptions(){
+        unsigned temp = 0;
+        while(temp != right){
+            cout << endl;
+            this->outputOptions();
+            cout << endl;
+            temp = this->getInput();
+            this->outputCons(temp);
         }
-        while(temp != right);
         return;
     }
 };
