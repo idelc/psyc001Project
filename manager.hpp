@@ -1,43 +1,29 @@
+#ifndef MANAG_HPP
+#define MANAG_HPP
 #include <iostream>
 #include <string>
-#include <list>
+#include <vector>
 
 using namespace std;
-string userName;
 
-void narrator();
-void gameEnd();
+#include "choices.hpp"
+
 void game();
-unsigned gameStart();
+void gameEnd();
+unsigned inputValidation();
+void primaryText();
+void choices();
+void education();
+void finPrint();
 
 void game(){
-    bool cont = 0;
-    cont = gameStart();
-    if(!cont){
-        gameEnd();
-    }
-    narrator();
+    
     return;
 }
 
 void gameEnd(){
-    cout << "Goodbye, " << userName << "!" << endl;
+    cout << "Goodbye !" << endl;
     exit(0);
 }
 
-unsigned gameStart(){
-char prog;
-    cout << "Welcome!\n" << endl; 
-    cout << "What is your name?\n";
-    cin >> userName;
-    cout << "Nice to meet you " << userName << ", are tou ready to begin? (y/n)\n";
-    cin >> prog;
-    if((prog == 'Y')||(prog == 'y')){
-        return 1;
-    }
-    return 0;
-}
-
-void narrator(){
-    cout << "Let's go! (press q at any time to quit)";
-}
+#endif
