@@ -11,7 +11,6 @@ using namespace std;
 
 void game();
 void gameEnd();
-unsigned inputValidation();
 void primaryText();
 void choices();
 void education();
@@ -22,9 +21,22 @@ void game(){
     string narration [57] = {};
     string facts [20] = {};
     string tempArray [8] = {};
-    string choiceCorrect [16] = {""};
+    int choiceCorrect [16] = {3, 1, 4, 2, 3, 4, 4, 4, 4, 1, 3, 2, 4, 4, 4, 1};
     choice arChoices [16] = {};
-    unsigned queue [93] = {""};
+    unsigned queueG [93] = {1, 1, 3, 1, 1, 1, 2,
+                        1, 3, 1, 1, 2, 1, 3,
+                        1, 2, 1, 3, 
+                        1, 1, 2, 1, 3, 1, 2,
+                        1, 1, 3, 1, 2, 1, 1, 2,
+                        1, 1, 1, 3, 1, 1, 1, 2,
+                        1, 1, 3, 1, 2, 1, 1,
+                        3, 1, 2, 1, 1, 2, 1,
+                        3, 1, 2, 1, 1,
+                        3, 1, 2, 1, 1, 1, 3,
+                        1, 2, 1, 1, 2, 1, 3,
+                        2, 1, 1, 3, 1, 2, 1,
+                        1, 3, 2, 1, 1, 2, 1, 3,
+                        1, 2, 1, 1};
     string tempString;
 
     ifstream read("reading.txt");
@@ -59,11 +71,42 @@ void game(){
             getline(read3, tempString);
             tempArray[j] = tempString;
         }
-        tempArray[9] = choiceCorrect[i];
-        arChoices[i] = new choice(tempArray);
+        arChoices[i] = new choice(tempArray, choiceCorrect[i]);
     }
     read3.close();
 
+    cout << "Welcome! This game is made to teach you the basics of neurons and neuroanatomy as covered in Psyc 1. Press 5 at any time to quit. Enjoy! \n" << endl;
+
+    unsigned tempQ = 0, narCnt = 0, opCnt = 0, fCnt = 0; 
+    for(unsigned i = 0; i < 93; i++){
+        tempQ = queueG[i];
+        switch (tempQ){
+        case 1:
+            cout << narration[narCnt++];
+            break;
+        case 2:
+            cout << facts[fCnt++];
+            break;
+        case 3: 
+            arChoices[opCnt++].runOptions();
+            break;
+        default:
+            cout << "\n Error in game\n";
+            exit(1);
+            break;
+        }
+    }
+
+    int tempEnd = 1;
+    cout << "\n\n If you'd like to see the all the facts, press 0. Press anything else to quit." << endl;
+    cin >> tempEnd;
+    cin.ignore(256,'\n');
+    cout << endl;
+    for(unsigned i = 0; i < 20; i++){
+        cout << facts[i];
+    }
+    cout << "\n\nPress any key to quit" << endl;
+    cin >> tempEnd;
     return;
 }
 
