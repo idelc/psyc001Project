@@ -5,4 +5,14 @@ This project will educate the user on the biological basis of psychology. As suc
   Subcortical structures
   Neurons and their use
 
-The player will go through a small text-based adventure where they will discover clues to solve a puzzle at the end of their journey. The clues will take the form of class concepts, and the puzzle at the end will be an assessment of the concepts. In this way, the player not only learns class concepts but can study them through challenged recall, and not just review.
+The idea behind this game is to introduce the player to the anatomy of the brain and, more importantly, the functions of the different structures. The player will move through the game and find the information in the “environment”. In doing so, it may help the player remember the concepts if they can associate them with a story instead of the concepts by themselves. 
+
+If you are on an Apple Computer or using a version of Linux, use the mac version. Run the psyc1ProjIvanndlc.out file.
+
+If you are on an a computer using Microsoft Windows, use the windowsVersion. Run the psyc1ProjIvanndlc.exe file.
+
+To play, click on the green "Code Button" then download as a zip folder
+
+Once downloaded, unzip the folder and access the correct folder for your computer.
+
+Contact the author for any further questions
