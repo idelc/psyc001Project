@@ -9,8 +9,10 @@ using namespace std;
 #include "manager.hpp"
 
 class choice{
-public:
-choice(string )
+ public:
+    string storage [9] = {};
+    choice(string arr[]): storage = arr {};
+    choice();
 };
 
 #endif 

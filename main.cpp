@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "manager.hpp"
+#include "choices.hpp"
 
 int main(){
     game();
